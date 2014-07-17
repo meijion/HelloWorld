@@ -81,7 +81,7 @@ public class MainActivity extends Activity
                 myWebView.loadUrl("javascript:myFunction()");
                 System.out.println("1235555");
                 // 杩欓噷瀹炵幇鐨勬晥鏋滃拰鍦ㄧ綉椤典腑鐐瑰嚮绗竴涓寜閽殑鏁堟灉涓�鑷�
-
+                System.out.println("1111");
             }
         });
 
