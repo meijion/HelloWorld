@@ -29,19 +29,19 @@ public class MainActivity extends Activity
 
         myWebView = (WebView) findViewById(R.id.myWebView);
                                                     
-        // 得到设置属性的对象
+        // 寰楀埌璁剧疆灞炴�х殑瀵硅薄
         WebSettings webSettings = myWebView.getSettings();
 
-        // 使能JavaScript
+        // 浣胯兘JavaScript
         webSettings.setJavaScriptEnabled(true);
 
-        // 支持中文，否则页面中中文显示乱码
+        // 鏀寔涓枃锛屽惁鍒欓〉闈腑涓枃鏄剧ず涔辩爜
         webSettings.setDefaultTextEncodingName("UTF-8");
 
-        // 限制在WebView中打开网页，而不用默认浏览器
+        // 闄愬埗鍦╓ebView涓墦寮�缃戦〉锛岃�屼笉鐢ㄩ粯璁ゆ祻瑙堝櫒
         myWebView.setWebViewClient(new WebViewClient());
 
-        // 如果不设置这个，JS代码中的按钮会显示，但是按下去却不弹出对话框
+        // 濡傛灉涓嶈缃繖涓紝JS浠ｇ爜涓殑鎸夐挳浼氭樉绀猴紝浣嗘槸鎸変笅鍘诲嵈涓嶅脊鍑哄璇濇
         // Sets the chrome handler. This is an implementation of WebChromeClient
         // for use in handling JavaScript dialogs, favicons, titles, and the
         // progress. This will replace the current handler.
@@ -58,17 +58,17 @@ public class MainActivity extends Activity
 
         });
 
-        // 用JavaScript调用Android函数：
-        // 先建立桥梁类，将要调用的Android代码写入桥梁类的public函数
-        // 绑定桥梁类和WebView中运行的JavaScript代码
-        // 将一个对象起一个别名传入，在JS代码中用这个别名代替这个对象，可以调用这个对象的一些方法
+        // 鐢↗avaScript璋冪敤Android鍑芥暟锛�
+        // 鍏堝缓绔嬫ˉ姊佺被锛屽皢瑕佽皟鐢ㄧ殑Android浠ｇ爜鍐欏叆妗ユ绫荤殑public鍑芥暟
+        // 缁戝畾妗ユ绫诲拰WebView涓繍琛岀殑JavaScript浠ｇ爜
+        // 灏嗕竴涓璞¤捣涓�涓埆鍚嶄紶鍏ワ紝鍦↗S浠ｇ爜涓敤杩欎釜鍒悕浠ｆ浛杩欎釜瀵硅薄锛屽彲浠ヨ皟鐢ㄨ繖涓璞＄殑涓�浜涙柟娉�
         myWebView.addJavascriptInterface(new WebAppInterface(this),
                 "myInterfaceName");
 
-        // 载入页面：本地html资源文件
+        // 杞藉叆椤甸潰锛氭湰鍦癶tml璧勬簮鏂囦欢
         myWebView.loadUrl("file:///android_asset/sample.html");
 
-        // 这里用一个Android按钮按下后调用JS中的代码
+        // 杩欓噷鐢ㄤ竴涓狝ndroid鎸夐挳鎸変笅鍚庤皟鐢↗S涓殑浠ｇ爜
         myButton = (Button) findViewById(R.id.button1);
         myButton.setOnClickListener(new View.OnClickListener()
         {
@@ -76,10 +76,10 @@ public class MainActivity extends Activity
             @Override
             public void onClick(View v)
             {
-                // 用Android代码调用JavaScript函数：
+                // 鐢ˋndroid浠ｇ爜璋冪敤JavaScript鍑芥暟锛�
                 myWebView.loadUrl("javascript:myFunction()");
-
-                // 这里实现的效果和在网页中点击第一个按钮的效果一致
+                System.out.println("123");
+                // 杩欓噷瀹炵幇鐨勬晥鏋滃拰鍦ㄧ綉椤典腑鐐瑰嚮绗竴涓寜閽殑鏁堟灉涓�鑷�
 
             }
         });
@@ -87,7 +87,7 @@ public class MainActivity extends Activity
     }
 
     /**
-     * 自定义的Android代码和JavaScript代码之间的桥梁类
+     * 鑷畾涔夌殑Android浠ｇ爜鍜孞avaScript浠ｇ爜涔嬮棿鐨勬ˉ姊佺被
      * 
      * @author 1
      * 
@@ -104,7 +104,7 @@ public class MainActivity extends Activity
         }
 
         /** Show a toast from the web page */
-        // 如果target 大于等于API 17，则需要加上如下注解
+        // 濡傛灉target 澶т簬绛変簬API 17锛屽垯闇�瑕佸姞涓婂涓嬫敞瑙�
         // @JavascriptInterface
         public void showToast(String toast)
         {
