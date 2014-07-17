@@ -79,7 +79,7 @@ public class MainActivity extends Activity
             {
                 // 鐢ˋndroid浠ｇ爜璋冪敤JavaScript鍑芥暟锛�
                 myWebView.loadUrl("javascript:myFunction()");
-                System.out.println("123");
+                System.out.println("1235555");
                 // 杩欓噷瀹炵幇鐨勬晥鏋滃拰鍦ㄧ綉椤典腑鐐瑰嚮绗竴涓寜閽殑鏁堟灉涓�鑷�
 
             }
